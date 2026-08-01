@@ -1,0 +1,93 @@
+:root{
+  --bg:#f7f7fb;
+  --card:#ffffff;
+  --muted:#6b7280;
+  --accent:#4f46e5;
+  --danger:#ef4444;
+  --shadow: 0 4px 12px rgba(16,24,40,0.06);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background:linear-gradient(180deg,var(--bg),#ffffff);
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  padding:40px 16px;
+  color:#111827;
+}
+
+.app{
+  width:100%;
+  max-width:640px;
+}
+
+h1{
+  margin:0 0 18px 0;
+  font-size:1.5rem;
+  letter-spacing:-0.02em;
+}
+
+.new-task{
+  display:flex;
+  gap:8px;
+  margin-bottom:18px;
+}
+.new-task input{
+  flex:1;
+  padding:12px 14px;
+  border-radius:8px;
+  border:1px solid #e6e9ef;
+  background:var(--card);
+  font-size:1rem;
+  outline:none;
+}
+.new-task input:focus{box-shadow:0 0 0 3px rgba(79,70,229,0.08);border-color:var(--accent)}
+.new-task button{
+  background:var(--accent);
+  color:white;
+  border:none;
+  padding:0 14px;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.todo-section{
+  background:var(--card);
+  border-radius:12px;
+  padding:10px;
+  box-shadow:var(--shadow);
+  border:1px solid #eef2ff;
+}
+
+.task-list{list-style:none;padding:6px;margin:0;display:flex;flex-direction:column;gap:8px}
+.task{
+  display:flex;align-items:center;gap:12px;padding:10px;border-radius:8px;
+  transition:background .12s;
+}
+.task:hover{background:#fbfbff}
+.task .checkbox{
+  width:20px;height:20px;border-radius:6px;border:1px solid #e6e9ef;
+  display:inline-flex;align-items:center;justify-content:center;cursor:pointer;
+  background:white;
+}
+.task.completed .label{ text-decoration:line-through;color:#9ca3af }
+.task .label{flex:1}
+.task button.icon{
+  background:none;border:none;color:var(--muted);cursor:pointer;padding:6px;border-radius:6px}
+.task button.icon:hover{background:#f3f4f6}
+
+.controls{display:flex;align-items:center;justify-content:space-between;padding:8px 6px;margin-top:10px;flex-wrap:wrap;gap:8px}
+.filters{display:flex;gap:8px}
+.filter{background:transparent;border:1px solid transparent;padding:6px 10px;border-radius:8px;cursor:pointer;color:var(--muted)}
+.filter.active{background:#eef2ff;border-color:rgba(79,70,229,0.12);color:var(--accent)}
+.count{color:var(--muted)}
+.clear{background:transparent;border:none;color:var(--danger);cursor:pointer;padding:6px 10px;border-radius:8px}
+
+@media (max-width:420px){
+  .new-task input{padding:10px}
+  h1{font-size:1.25rem}
+}
